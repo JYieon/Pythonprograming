@@ -2,8 +2,14 @@
 #import math
 
 def solution(price, grade):
-    #Write code here.
-    answer = 0
+    
+    if grade == "S" :
+        answer = price * 0.95
+    if grade == "G" :
+        answer = price * 0.9
+    if grade == "V" :
+        answer = price * 0.85
+    
     return answer
 
 #The following is code to output testcase.
