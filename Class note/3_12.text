@@ -1,0 +1,236 @@
+인코딩 디코딩
+인코딩 : 코드화 = 암호화 = 부호화
+디코딩 : 역코드화 = 복호화
+
+a = "Hello"
+type(a)
+print(a) => 'Hello' 출력
+
+b = a.encode('utf-8)
+type(b) => byte 출력
+print(b) => b'Hello' 출력(byte 형태 표시)
+
+a = '한글'
+b = a.encode('utf-8')
+print(b) => b'sdofijwenfd' (사람이 이해할 수 없는 언어로 출력)
+
+b.decode('utf-8') => '한글' 출력
+
+d.decode('ascii') => 변환 안됨
+
+인코딩을 통해 이모지같은거 사용 가능
+print("Learning : ", "WUOOO1F4OD")
+
+#오픈소스같은 곳에 잇는 인코딩 방식 주석
+#-*- coding: ascii -*-
+# 파이선 2점대 기본 인코딩 방식
+
+#-*- coding: utf-8 -*-
+3 파이선 3. ~ 기본 인코딩 방식
+
+인코딩 방식 확인할 수 있는 사이트 있음
+
+
+[클로저]
+:함수 안의 함수를 결과로 반환할 때 그 내부함수를 클로저라고 함
+콜백함수, 함수의 순차적 식행, 데코레이터 함수에 사용
+
+#받은 수에 3을 곱하는 함수
+def mul3(n):
+    return n*3
+
+mul(3) => 9
+
+코드를 매번 하나씩 만들기는 귀찮은 일
+-> 클래스 생성
+
+class Mul:
+    def __init__(self, m):
+        self.m=mul
+
+    def mul(self, n):
+        return self.m*n
+
+mule = Mul(3)
+
+print(mul3.mul(10)) #30출력
+
+
+class Mul:
+    def __init__(self, m):
+        self.m=mul
+
+    def __call__(self, n): #mul 함수를 __call__함수명으로 변경
+        return self.m*n
+
+mul3 = Mul(3)
+
+print(mul3(10)) # 30 출력
+
+-----------------------------------------
+
+def mul(m): ##외부함수
+    def wrapper(n): #3내부함수(클로저)
+        return m*n
+    return wrapper
+
+mul3 = Mul(3) # m=3인 wrapper 함수가 mul3에 저장
+
+print(mul3(10)) # 30 출력 #m=3, n=10인 wrapper함수가 실행
+
+==이런 다양한 방법이 있다...
+==상황에 따라 맞게 사용
+
+
+-------------------------------------------
+
+[데코레이터]
+:함수를 꾸며주는 함수
+@를 이용한 어노테이션
+반복되는 작업(함수)을 여러 함수에 적용하고 싶을 때 사용
+기존 함수를 수정하지 않고 추가 기능을 구현하고 싶을 때 사용
+
+import time~
+def func1
+
+time.time() #현재 시간 반환
+----------
+def func2
+
+=> func1,2모두 start, end 에 코드 중복(낭비)
+
+---------
+def func1, 2
+
+>>실행 시간 측정 데코레이터
+
+-----------------------------------------------
+[이터레이터]
+:어떤 집합에서 값을 차례대로 꺼낼 수 있는 객체
+for문을 순회할 수 있는 객체라는 말!
+ex)
+for a in [1,2,3]: => 1,2,3 자체가 이터레이터가 가능한 객체
+    print(a) => 1,2,3출력
+
+
+-----
+a = [1,2,3]
+iterator = iter(a)
+type(iterator) => list_iterator 출력
+=> 이 배열은 이터레이터 된 것.
+
+next(iterator) => '1' (요소를 하나씩 호출)
+next(iterator) => '2'
+next(iterator) => '3'
+next(iterator) => stop iterator error
+
+for a in iterator:
+    print(a) => 더이상 끄집어낼 게 없어서 실행 x
+
+이터레이터는 한 턴만 돈다.
+
+
+
+-------------------------------------------------
+[제너레이터]
+:이터레이터를 생성해주는 함수
+함수가 순차적으로 다른 값을 반환하고 싶을 때(순차적으로 다른 기능을 사용하고 싶을 때)
+이터레이터와 제너레이터 사용
+**yield***
+
+def generator():
+    yield 'a'
+    yield 'b'
+    yield 'c'
+
+g = generator()
+type(g) => 'generator'
+
+next(g) => 'a'
+next(g) => 'b'
+next(g) => 'c'
+next(g) => stop interator error
+
+제너레이터 어떤 상황에서 사용?
+
+def client_count
+
+mygen = client_count(100)
+next(mygen) => '1번째 고객님 입장하십시오'
+next(mygen) => '2번째 고객님 입장하십시오'
+next(mygen) => '3번째 고객님 입장하십시오' ~~~~
+
+-----------------------------------------------
+[변수 타입 어노테이션]
+
+
+파이썬:동적 프로그래밍언어
+자바, 씨: 정적프로그래밍언어
+
+파이썬 단점
+1. 프로젝트가 커지면 해석이 어려워 진다는 단점 + 수행속도가 느림
+
+파이썬에서 어노테이션을 사용하ㅁ여 명시해주기도 함
+
+def add
+
+add("1","2") => 동적프로그래밍 언어이기때문에 error발생은 안하지만 결과에서 이상함 감지
+
+add.__annotations__
+=> 딕셔너리 형태로 어노테이션이 뭔지 확인 가능
+
+
+-------------------------------------------------------
+문자열!
+str()과 repr() 함수
+
+import datetime => 날짜, 시간을 데이터화해서 저장
+
+str(a) => 문자열 출력
+repr(a) => 객체에 대한 설명? 형태를 그대로 출력 (문자열 변환x)
+
+eval(b) => 시스템상에서 의미를 가지는 문자열은 아니라 error
+
+repr후 eval(b) => 평가 가능
+
+--------------------------------------------------------
+[library 다루는 방법]
+
+pip list => 내가 가진 package list 확인가능
+pip install 패키지명 => 원하는 패키지 설치
+pip uninstall 패키지명 => 삭제
+pip install 패키지명==버전 => 버전에 맞춰서 설치
+pip install --upgrade 패키지명 => 설치된 패키지 최신버전으로 업그레이드
+!pip freeze > requirements.txt => 설치된 패키지를 얼려서 requirements.txt에 저장
+!pip install -r requirements.txt => .txt에 있는 패키지 설치
+
+
+---------------------------------------------------
+오늘 할 것 : 문자열을 다루는 미니 프로젝트
+
+
+**reaular expression**반드시 알아두기
+:특정 문자열 추출, 변호나 등에 사용
+import re
+#단어추출
+words = re.findall(r'\w+', text)
+print(words)
+
+#연락처
+regex => 연락처로 시작하면서 1이나 2 -잇고 3이나4 -잇고 3이나 4인 전화번호
+
+
+-------------------------------------------------
+gensiom : 파이선 머신러닝 라이브러리
+Word2Vec 에 사용
+: 문자열을 벡터로 환산
+-링크타고 모델 다운받아서 학습하기
+
+model.wv.similar("뉴스") => 뉴스와 관련된 단어 출력
+유사도 확인도 가능
+
+---------------------------------------------------------
+문서요약하기
+AI Hub에서 도서자료 요약 데이터 다운
+
+pandas library 사용
