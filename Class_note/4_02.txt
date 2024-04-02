@@ -1,0 +1,60 @@
+pygame 라이브러리 설치
+-> pip install pygame
+
+코드가 있는 위치에서 실행여부 ON
+Vs code 설정 -> python.terminal.execute In File Dir 체크
+
+게임 실행 확인
+-> hangman.py 실행 -> 게임해보기
+
+hangman게임
+: 단어를 1개 생각
+처음엔 밑줄로 표시
+단어에 포함될 것 같은 글자를 하나씩 말한다.
+포함되면 해당 위치에 글자를 표시
+포함이 안되면 사람을 하나씩 그려나간다.
+사람이 먼저 완성되면 컴퓨터 Win
+단어가 먼저 완성되면 사용자 Win
+=> 이런 알고리즘을 코드로 하나씩 구현
+
+
+게임 구성요소 : 프로그래밍(코드작성), 시나리오(스토리), 디자인
+
+word = "mana"
+word = word.upper()
+print(word)
+word_show = "_"*len(word)
+print(word_show)
+
+
+try_num = 0
+ok_list = []
+no_list = []
+while True: //보통 게임은  while문으로 시작
+    ans = input().upper()
+    print(ans)
+
+    result = word.find(ans) //입력한 글자 찾기 있으면1, 없으면 -1 return
+    if result == -1:
+        print("없음")
+        try_num += 1
+        no_list.append(ans)
+    else:
+        print("있음")
+        ok_list.append(ans)
+        //중복된 모든 숫자를 찾아줘야함
+        for i in range(len(word)):
+            if word[i] == ans:
+                word_show = word_show[:i] + ans + word_show[i+1:] //word_show 계속 없데이트
+
+                //_ _ _ a _ n ->> _ _ c a _ n
+        
+        print(word_show)
+    if try_num == 7: break //사람이 완성
+    if word_show.find("_") == -1: break //밑줄이 없음
+
+
+vaca.txt 에서 단어를 골라서 컴퓨터가 생각하도록  바꿈
+
+무료폰트 , 무료 사운드 파일 사용하기 
+자율프로젝트~ 
