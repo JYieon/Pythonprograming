@@ -138,7 +138,7 @@ while not exit:
     entry_bg_size = 80
     pygame.draw.rect(screen, white, tup_r((size[0]/2-entry_bg_size/2, size[1]*17/18-entry_bg_size/2
                                      ,entry_bg_size ,entry_bg_size)))
-    screen.blit(entry, entry_pos) #약간 랜더링?? 화면에 그려주는 함수
+    screen.blit(entry, entry_pos) #화면에 그려주는 함수
     # 오답 표시하기
     no_text = " ".join(no_list)
     no = no_font.render(no_text, True, red)
