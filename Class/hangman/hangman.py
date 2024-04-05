@@ -1,3 +1,4 @@
+#hangman 주석쓰기 과제
 import pygame, math, random
 
 # 1. 게임 초기화
