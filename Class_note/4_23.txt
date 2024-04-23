@@ -1,0 +1,50 @@
+웹 크롤링 2번째 시간
+
+api를 이용한 실습
+네이버와 유튜브(구글)에서 배포한 api사용 실습
+
+naver developers 검색 
+->로그인 -> 어플리케이션
+
+에러코드 400 : 파라미터값 오류
+
+딕셔너리 형태 {}
+{
+	"lastBuildDate":"Tue, 23 Apr 2024 09:22:47 +0900",
+	"total":2421530,
+	"start":1,
+	"display":10,
+	"items":[  //10개의 검색결과
+		{
+			"title":"<b>강남역<\/b> 피부과 인모드가격 생생한 전후비교",
+			"link":"https:\/\/blog.naver.com\/oksury\/223421149521",
+			"description":"저도 피부 탄력이 줄어들면서 이중턱이 점점 더 심해져서 <b>강남역<\/b> 피부과에서 시술을 받고 왔는데요. 저... 사실 처짐은 홈케어만으로 해결이 불가능한 영역이라서 저는 꼭 이문제만큼은 <b>강남역<\/b> 피부과... ",
+			"bloggername":"블로그 좀 시작해볼까?",
+			"bloggerlink":"blog.naver.com\/oksury",
+			"postdate":"20240420"
+		},
+		{
+			"title":"<b>강남역<\/b> 맛집 갓덴스시 웨이팅 및 초밥 추천 내돈내산 후기",
+			"link":"https:\/\/blog.naver.com\/rlaalsgml357\/223421811129",
+			"description":"웨이팅이 좀 길긴 하지만 맛이 워낙 좋아서 다음번에도 또 방문하게 될 것 같아요! 위치 #갓덴스시 #갓덴스시강남 #갓덴스시웨이팅 #내돈내산 #갓덴스시대기 #강남맛집 #내돈내산 #<b>강남역<\/b>맛집 #<b>강남역<\/b>초밥 #강남초밥",
+			"bloggername":"밤 하늘 별 하나",
+			"bloggerlink":"blog.naver.com\/rlaalsgml357",
+			"postdate":"20240420"
+		},
+		{
+			"title":"<b>강남역<\/b>한의원 교통사고 적절한 대처 방안은",
+			"link":"https:\/\/blog.naver.com\/elites88\/223419222870",
+...
+			"postdate":"20240408"
+		}
+	]
+}
+출력된 결과물로 보기는 조금 번거로움
+
+jsonviewer 검색
+온라인에서 json구조를 파악
+파이썬에서는 json이 딕셔너리
+
+
+유튜브api
+https://github.com/youtube/api-samples/blob/master/python/search.py
