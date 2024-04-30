@@ -5,6 +5,7 @@ from email.mime.text import MIMEText
 from openpyxl.reader.excel import load_workbook
 
 
+
 class EmailSender:
     email_addr = None
     password = None
@@ -54,10 +55,10 @@ class EmailSender:
                               to_addr=row[0].value, subject=row[1].value)
 
 if __name__ == '__main__':
-    gmail_address = 'sy1007.lee@gmail.com'
-    gmail_password = ""
-    naver_address = 'ssangyun007@naver.com'
-    naver_password = ""
+    gmail_address = GOOGLE_ADD
+    gmail_password = GOOGLE_PW
+    naver_address = NAVER_ADD
+    naver_password = NAVER_PW
     es_gmail = EmailSender(gmail_address, gmail_password)
     es_naver = EmailSender(naver_address, naver_password)
     # es_gmail.send_email('테스트 입니다.\n구글 이메일에서 보냄', from_addr=gmail_address, to_addr=naver_address)

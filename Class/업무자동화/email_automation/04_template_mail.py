@@ -5,7 +5,6 @@ from email.utils import formataddr
 
 from openpyxl.reader.excel import load_workbook
 
-
 class EmailSender:
     email_addr = None
     manager_name = None
@@ -61,7 +60,7 @@ class EmailSender:
 
             if row[0].value != None:
                 print(row[0].value, row[1].value, row[2].value)
-                temp1 = temp1.replace('%받는분%', row[1].value)
+                temp1 = temp1.replace('%받는분%', row[1].value) #이름교체
                 temp1 = temp1.replace('%교수명%', self.manager_name)
                 self.send_email(msg=temp1,
                               from_addr=self.email_addr,
@@ -69,9 +68,9 @@ class EmailSender:
                               subject=row[2].value)
 
 if __name__ == '__main__':
-    gmail_address = 'sy1007.lee@gmail.com'
-    gmail_password = ""
-    naver_address = 'ssangyun007@naver.com'
+    gmail_address = GOOGLE_ADD
+    gmail_password = GOOGLE_PW
+    naver_address = ""
     naver_password = ""
     es_gmail = EmailSender(gmail_address, gmail_password, manager_name='구상윤')
     es_naver = EmailSender(naver_address, naver_password, manager_name='네상윤')

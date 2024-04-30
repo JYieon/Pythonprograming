@@ -1,6 +1,11 @@
 import os
 import smtplib
 from email.mime.text import MIMEText
+  
+GOOGLE_ADD = ""
+GOOGLE_PW = ""
+NAVER_ADD = "clsm4569@naver.com"
+NAVER_PW = ""
 
 
 class EmailSender:
@@ -29,21 +34,19 @@ class EmailSender:
             msg = MIMEText(msg)
             msg['From'] = from_addr
             msg['To'] = to_addr
-            msg['Subject'] = "이메일 전송 테스트"
-            print(msg.as_string())
+            msg['Subject'] = "제출합니다."
+            print(msg.as_string()) #string 으로 변환하여 출력
 
-            smtp.starttls()
+            smtp.starttls() #서버열기
             smtp.login(self.email_addr, self.password)
             smtp.sendmail(from_addr=from_addr, to_addrs=to_addr, msg=msg.as_string())
-            smtp.quit()
+            smtp.quit() #서버닫기
         print('이메일 전송이 완료 되었습니다.')
 
 if __name__ == '__main__':
-    gmail_address = 'sy1007.lee@gmail.com'
-    gmail_password = ""
-    naver_address = 'ssangyun007@naver.com'
-    naver_password = ""
+
+    naver_address = NAVER_ADD
+    naver_password = NAVER_PW
     es_gmail = EmailSender(gmail_address, gmail_password)
     es_naver = EmailSender(naver_address, naver_password)
-    es_gmail.send_email('테스트 입니다.\n구글 이메일에서 보냄', from_addr=gmail_address, to_addr=naver_address)
-    es_naver.send_email('테스트 입니다.\n네이버 이메일에서 보냄', from_addr=naver_address, to_addr=gmail_address)
+    es_naver.send_email('', from_addr=naver_address, to_addr="ssangyun007@naver.com")
