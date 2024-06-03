@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-f = open("01_h1_tag.html", encoding="utf-8")
+f = open("c:/pythonpj/Pythonprograming/Class/web_crawling/web_default/01_h1_tag.html", encoding="utf-8")
 
 bsobj = BeautifulSoup(f.read(), "html.parser")
 
